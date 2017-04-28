@@ -10,6 +10,8 @@ for i,el in enumerate(trainval):
 	trainval[i] = el.split('.')[0]
 for i,el in enumerate(test):
 	test[i] = el.split('.')[0]
+for i,el in enumerate(files):
+	files[i] = el.split('.')[0]
 
 f = open('trainval.txt','w')
 f.write('\n'.join(trainval))
@@ -17,4 +19,8 @@ f.close()
 
 f = open('test.txt','w')
 f.write('\n'.join(test))
+f.close()
+
+f = open('cola_can.txt','w')
+f.write('\n'.join(files))
 f.close()
