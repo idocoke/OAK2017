@@ -2,8 +2,9 @@ import os
 import numpy as np
 import math
 
-files = os.listdir('xml_out')
-trainval = np.random.choice(np.array(files),int(math.ceil(len(files)/2.0)),replace=False)
+files = os.listdir('Annotations')
+trainval = np.random.choice(np.array(files),len(files),replace=False)
+
 test = [x for x in files if x not in trainval]
 
 for i,el in enumerate(trainval):
@@ -13,14 +14,14 @@ for i,el in enumerate(test):
 for i,el in enumerate(files):
 	files[i] = el.split('.')[0]
 
-f = open('trainval.txt','w')
+f = open('ImageSets/Main/trainval.txt','w')
 f.write('\n'.join(trainval))
 f.close()
 
-f = open('test.txt','w')
+f = open('ImageSets/Main/test.txt','w')
 f.write('\n'.join(test))
 f.close()
 
-f = open('cola_can.txt','w')
+f = open('ImageSets/Main/cola_can.txt','w')
 f.write('\n'.join(files))
 f.close()
